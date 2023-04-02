@@ -3,10 +3,8 @@ defmodule Terminator.Application do
   use Application
 
   def start(_type, _args) do
-    import Supervisor.Spec
-
     children = [
-      worker(Terminator.Registry, [])
+      Terminator.Registry
     ]
 
     children = children ++ load_repos()
